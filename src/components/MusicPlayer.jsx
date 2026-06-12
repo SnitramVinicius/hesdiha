@@ -50,7 +50,7 @@ export default function MusicPlayer() {
   const progressPercentage = duration ? (currentTime / duration) * 100 : 0;
     
   return (
-    <div className="bg-black/90 backdrop-blur-md px-6 py-5">
+    <div className="bg-black/90 backdrop-blur-md px-6 py-5 min-h-screen flex flex-col justify-center">
       {/* Áudio - usando MP4 */}
       <audio
         ref={audioRef}
@@ -62,8 +62,9 @@ export default function MusicPlayer() {
       {/* Título "Para uma Izis" */}
       <div className="text-center mb-6">
         <p className="text-pink-400 text-sm tracking-[3px] font-medium">
-          PARA HESDIHÁ
+          PARA VOCÊ
         </p>
+        
       </div>
       
       {/* FOTO GRANDE COM ANIMAÇÃO SUTIL QUANDO TOCA */}
