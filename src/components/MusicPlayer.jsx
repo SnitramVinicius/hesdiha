@@ -9,7 +9,7 @@ export default function MusicPlayer() {
   const [isHovered, setIsHovered] = useState(false);
   const audioRef = useRef(null);
   
-  const musicUrl = '/ay-vamos.mp3';
+  const musicUrl = '/ay-vamos.mpeg';
   const photoUrl = '/foto.jpeg';
   
   useEffect(() => {
