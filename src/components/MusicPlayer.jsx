@@ -2,11 +2,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 export default function MusicPlayer() {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(267);
-  const [imageError, setImageError] = useState(false);
-const [isHovered, setIsHovered] = useState(false);
+const [isPlaying, setIsPlaying] = useState(false);
+const [currentTime, setCurrentTime] = useState(0);
+const [duration, setDuration] = useState(267);
+const [imageError, setImageError] = useState(false);
   const audioRef = useRef(null);
   
   const musicUrl = '/ay-vamos.mpeg';
