@@ -6,7 +6,7 @@ export default function MusicPlayer() {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(267);
   const [imageError, setImageError] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
+const [isHovered, setIsHovered] = useState(false);
   const audioRef = useRef(null);
   
   const musicUrl = '/ay-vamos.mpeg';
@@ -48,33 +48,7 @@ export default function MusicPlayer() {
   };
   
   const progressPercentage = (currentTime / duration) * 100;
-  
-  // Ícone Play SVG (mais bonito)
-  const PlayIcon = () => (
-    <svg 
-      viewBox="0 0 24 24" 
-      width="32" 
-      height="32" 
-      fill="currentColor"
-      className="ml-1"
-    >
-      <path d="M8 5v14l11-7z"/>
-    </svg>
-  );
-  
-  // Ícone Pause SVG (mais bonito)
-  const PauseIcon = () => (
-    <svg 
-      viewBox="0 0 24 24" 
-      width="32" 
-      height="32" 
-      fill="currentColor"
-    >
-      <rect x="6" y="4" width="4" height="16" rx="1"/>
-      <rect x="14" y="4" width="4" height="16" rx="1"/>
-    </svg>
-  );
-  
+    
   return (
     <div className="bg-black/90 backdrop-blur-md px-6 py-5">
       <audio
