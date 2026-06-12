@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import HeroSection from './components/HeroSection';
+import LoveCounter from './components/LoveCounter';
+import MusicPlayer from './components/MusicPlayer';
+import MessageCard from './components/MessageCard';
+import Timeline from './components/Timeline';
+import FloatingHearts from './components/FloatingHearts';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="relative min-h-screen bg-gradient-to-b from-pink-100 via-red-50 to-pink-100">
+      <FloatingHearts />
+      
+      <div className="max-w-md mx-auto pb-20">
+        <MusicPlayer />
+        <HeroSection />
+        <LoveCounter />
+        <MessageCard />
+        <Timeline />
+      </div>
     </div>
   );
 }
