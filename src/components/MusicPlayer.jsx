@@ -2,13 +2,14 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 export default function MusicPlayer() {
-const [isPlaying, setIsPlaying] = useState(false);
-const [currentTime, setCurrentTime] = useState(0);
-const [duration, setDuration] = useState(267);
-const [imageError, setImageError] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [imageError, setImageError] = useState(false);
   const audioRef = useRef(null);
   
-  const musicUrl = '/ay-vamos.mpeg';
+  // Seu arquivo MP4 - coloque na pasta public/
+  const musicUrl = '/Minha-Ruiva-Grupo-PagodeIA.mp4';
   const photoUrl = '/foto.jpeg';
   
   useEffect(() => {
@@ -46,10 +47,11 @@ const [imageError, setImageError] = useState(false);
     setCurrentTime(audioRef.current.currentTime);
   };
   
-  const progressPercentage = (currentTime / duration) * 100;
+  const progressPercentage = duration ? (currentTime / duration) * 100 : 0;
     
   return (
     <div className="bg-black/90 backdrop-blur-md px-6 py-5">
+      {/* Áudio - usando MP4 */}
       <audio
         ref={audioRef}
         src={musicUrl}
@@ -87,10 +89,10 @@ const [imageError, setImageError] = useState(false);
       {/* Informações da música */}
       <div className="text-center mb-6">
         <h3 className="text-white font-bold text-xl">
-          J. Balvin - Ay Vamos (Official Video)
+          Minha Ruiva - Grupo PagodeIA
         </h3>
         <p className="text-gray-400 text-base mt-1">
-          J Balvin
+          Grupo PagodeIA
         </p>
       </div>
       
@@ -126,41 +128,41 @@ const [imageError, setImageError] = useState(false);
           </svg>
         </button>
         
-       {/* Botão Play/Pause estilo Apple Music */}
-<button
-  onClick={togglePlay}
-  className={`
-    relative group
-    w-24 h-24 rounded-full 
-    bg-white
-    flex items-center justify-center
-    shadow-2xl transition-all duration-300
-    hover:scale-105
-    ${isPlaying ? 'shadow-pink-500/30' : 'shadow-gray-500/30'}
-  `}
->
-  {/* Efeito de brilho */}
-  <div className={`
-    absolute inset-0 rounded-full 
-    bg-gradient-to-r from-pink-500 to-rose-500 
-    opacity-0 group-hover:opacity-100 transition-opacity duration-300
-    blur-md
-  `}></div>
-  
-  {/* Ícone */}
-  <div className="relative z-10 text-pink-500">
-    {isPlaying ? (
-      <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor">
-        <rect x="6" y="4" width="4" height="16" rx="1"/>
-        <rect x="14" y="4" width="4" height="16" rx="1"/>
-      </svg>
-    ) : (
-      <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor" className="ml-1">
-        <path d="M8 5v14l11-7z"/>
-      </svg>
-    )}
-  </div>
-</button>
+        {/* Botão Play/Pause estilo Apple Music */}
+        <button
+          onClick={togglePlay}
+          className={`
+            relative group
+            w-24 h-24 rounded-full 
+            bg-white
+            flex items-center justify-center
+            shadow-2xl transition-all duration-300
+            hover:scale-105
+            ${isPlaying ? 'shadow-pink-500/30' : 'shadow-gray-500/30'}
+          `}
+        >
+          {/* Efeito de brilho */}
+          <div className={`
+            absolute inset-0 rounded-full 
+            bg-gradient-to-r from-pink-500 to-rose-500 
+            opacity-0 group-hover:opacity-100 transition-opacity duration-300
+            blur-md
+          `}></div>
+          
+          {/* Ícone */}
+          <div className="relative z-10 text-pink-500">
+            {isPlaying ? (
+              <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor">
+                <rect x="6" y="4" width="4" height="16" rx="1"/>
+                <rect x="14" y="4" width="4" height="16" rx="1"/>
+              </svg>
+            ) : (
+              <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor" className="ml-1">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            )}
+          </div>
+        </button>
         
         {/* Botão Próximo */}
         <button 
@@ -177,8 +179,7 @@ const [imageError, setImageError] = useState(false);
         </button>
       </div>
       
-      {/* Adicionar animação CSS */}
-      <style jsx>{`
+      <style>{`
         @keyframes pulse-slow {
           0%, 100% {
             box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.4);
